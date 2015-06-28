@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		804718D71B3F54D600033E3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804718D61B3F54D600033E3E /* AppDelegate.swift */; };
 		804718D91B3F54D600033E3E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804718D81B3F54D600033E3E /* MasterViewController.swift */; };
-		804718DB1B3F54D600033E3E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804718DA1B3F54D600033E3E /* DetailViewController.swift */; };
 		804718DE1B3F54D600033E3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 804718DC1B3F54D600033E3E /* Main.storyboard */; };
 		804718E01B3F54D600033E3E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 804718DF1B3F54D600033E3E /* Images.xcassets */; };
 		804718E31B3F54D600033E3E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 804718E11B3F54D600033E3E /* LaunchScreen.xib */; };
 		804718EF1B3F54D600033E3E /* CoolCollectionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804718EE1B3F54D600033E3E /* CoolCollectionsTests.swift */; };
+		804718FE1B40331C00033E3E /* VariableHeightCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804718FD1B40331C00033E3E /* VariableHeightCVC.swift */; };
+		804719021B4034F700033E3E /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804719011B4034F700033E3E /* Utility.swift */; };
+		804719071B403A0100033E3E /* Rocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804719061B403A0100033E3E /* Rocker.swift */; };
+		804719091B40415600033E3E /* VariableHeightLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804719081B40415600033E3E /* VariableHeightLayout.swift */; };
+		8047190C1B4056B600033E3E /* VariableHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047190A1B4056B600033E3E /* VariableHeightCell.swift */; };
+		8047190D1B4056B600033E3E /* VariableHeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8047190B1B4056B600033E3E /* VariableHeightCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +36,18 @@
 		804718D51B3F54D600033E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		804718D61B3F54D600033E3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		804718D81B3F54D600033E3E /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		804718DA1B3F54D600033E3E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		804718DD1B3F54D600033E3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		804718DF1B3F54D600033E3E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		804718E21B3F54D600033E3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		804718E81B3F54D600033E3E /* CoolCollectionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoolCollectionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		804718ED1B3F54D600033E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		804718EE1B3F54D600033E3E /* CoolCollectionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolCollectionsTests.swift; sourceTree = "<group>"; };
+		804718FD1B40331C00033E3E /* VariableHeightCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableHeightCVC.swift; sourceTree = "<group>"; };
+		804719011B4034F700033E3E /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		804719061B403A0100033E3E /* Rocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rocker.swift; sourceTree = "<group>"; };
+		804719081B40415600033E3E /* VariableHeightLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableHeightLayout.swift; sourceTree = "<group>"; };
+		8047190A1B4056B600033E3E /* VariableHeightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableHeightCell.swift; sourceTree = "<group>"; };
+		8047190B1B4056B600033E3E /* VariableHeightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariableHeightCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +89,11 @@
 		804718D31B3F54D600033E3E /* CoolCollections */ = {
 			isa = PBXGroup;
 			children = (
+				804718FF1B4034C500033E3E /* Collections */,
+				804719051B40395B00033E3E /* Model */,
+				804719001B4034D900033E3E /* Helpers */,
 				804718D61B3F54D600033E3E /* AppDelegate.swift */,
 				804718D81B3F54D600033E3E /* MasterViewController.swift */,
-				804718DA1B3F54D600033E3E /* DetailViewController.swift */,
 				804718DC1B3F54D600033E3E /* Main.storyboard */,
 				804718DF1B3F54D600033E3E /* Images.xcassets */,
 				804718E11B3F54D600033E3E /* LaunchScreen.xib */,
@@ -113,6 +125,57 @@
 				804718ED1B3F54D600033E3E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		804718F81B3F669100033E3E /* VariableHeightCollection */ = {
+			isa = PBXGroup;
+			children = (
+				804718FA1B3F66AC00033E3E /* BottomPinned */,
+				804718FD1B40331C00033E3E /* VariableHeightCVC.swift */,
+				804719081B40415600033E3E /* VariableHeightLayout.swift */,
+				8047190A1B4056B600033E3E /* VariableHeightCell.swift */,
+				8047190B1B4056B600033E3E /* VariableHeightCell.xib */,
+			);
+			name = VariableHeightCollection;
+			sourceTree = "<group>";
+		};
+		804718F91B3F66A000033E3E /* WheelCollection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = WheelCollection;
+			sourceTree = "<group>";
+		};
+		804718FA1B3F66AC00033E3E /* BottomPinned */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = BottomPinned;
+			sourceTree = "<group>";
+		};
+		804718FF1B4034C500033E3E /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				804718F81B3F669100033E3E /* VariableHeightCollection */,
+				804718F91B3F66A000033E3E /* WheelCollection */,
+			);
+			name = Collections;
+			sourceTree = "<group>";
+		};
+		804719001B4034D900033E3E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				804719011B4034F700033E3E /* Utility.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		804719051B40395B00033E3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				804719061B403A0100033E3E /* Rocker.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +227,7 @@
 				TargetAttributes = {
 					804718D01B3F54D600033E3E = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 5KC28BXEDS;
 					};
 					804718E71B3F54D600033E3E = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -197,6 +261,7 @@
 			files = (
 				804718DE1B3F54D600033E3E /* Main.storyboard in Resources */,
 				804718E31B3F54D600033E3E /* LaunchScreen.xib in Resources */,
+				8047190D1B4056B600033E3E /* VariableHeightCell.xib in Resources */,
 				804718E01B3F54D600033E3E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,8 +280,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				804718DB1B3F54D600033E3E /* DetailViewController.swift in Sources */,
+				804719091B40415600033E3E /* VariableHeightLayout.swift in Sources */,
+				804719021B4034F700033E3E /* Utility.swift in Sources */,
+				804718FE1B40331C00033E3E /* VariableHeightCVC.swift in Sources */,
 				804718D91B3F54D600033E3E /* MasterViewController.swift in Sources */,
+				8047190C1B4056B600033E3E /* VariableHeightCell.swift in Sources */,
+				804719071B403A0100033E3E /* Rocker.swift in Sources */,
 				804718D71B3F54D600033E3E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CoolCollections/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -354,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CoolCollections/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
