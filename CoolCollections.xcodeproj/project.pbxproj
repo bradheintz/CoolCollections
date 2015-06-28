@@ -173,9 +173,17 @@
 		804719051B40395B00033E3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8047190E1B4061E600033E3E /* Photos */,
 				804719061B403A0100033E3E /* Rocker.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		8047190E1B4061E600033E3E /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Photos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -12,12 +12,28 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fH-tt-37Y">
-                        <rect key="frame" x="0.0" y="89" width="320" height="21"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NPh-hq-1aV" userLabel="Photo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqc-hf-GpP" userLabel="Scrim">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fH-tt-37Y" userLabel="Title">
+                        <rect key="frame" x="10" y="10" width="310" height="22"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="Sq2-BJ-3VF"/>
+                            <constraint firstAttribute="height" constant="22" id="Sq2-BJ-3VF"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bla-OV-fNx" userLabel="Subtitle">
+                        <rect key="frame" x="0.0" y="169" width="310" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="UcL-fJ-nGr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -26,11 +42,33 @@
             </view>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="dqc-hf-GpP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="209-EN-EUd"/>
+                <constraint firstAttribute="bottom" secondItem="Bla-OV-fNx" secondAttribute="bottom" constant="10" id="7u2-Ck-Vlk"/>
                 <constraint firstAttribute="centerY" secondItem="1fH-tt-37Y" secondAttribute="centerY" id="8bi-Af-fKK"/>
+                <constraint firstAttribute="trailing" secondItem="Bla-OV-fNx" secondAttribute="trailing" constant="10" id="Apg-3w-egx"/>
+                <constraint firstItem="NPh-hq-1aV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="EWQ-sO-zKE"/>
+                <constraint firstAttribute="bottom" secondItem="NPh-hq-1aV" secondAttribute="bottom" id="HGI-9P-uQ4"/>
+                <constraint firstItem="1fH-tt-37Y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="leading" id="J6D-pd-nbJ"/>
                 <constraint firstAttribute="trailing" secondItem="1fH-tt-37Y" secondAttribute="trailing" id="Jyx-Pf-WBy"/>
-                <constraint firstItem="1fH-tt-37Y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="o6j-UH-GIo"/>
+                <constraint firstAttribute="bottom" secondItem="dqc-hf-GpP" secondAttribute="bottom" id="WKp-MF-hQa"/>
+                <constraint firstItem="dqc-hf-GpP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Xu6-Sz-5vE"/>
+                <constraint firstAttribute="trailing" secondItem="NPh-hq-1aV" secondAttribute="trailing" id="fI5-ob-1U5"/>
+                <constraint firstItem="NPh-hq-1aV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="h1W-Lh-dHB"/>
+                <constraint firstItem="Bla-OV-fNx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="muz-lg-nhN"/>
+                <constraint firstItem="1fH-tt-37Y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="o6j-UH-GIo"/>
+                <constraint firstItem="1fH-tt-37Y" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="xtb-ih-ord"/>
+                <constraint firstAttribute="trailing" secondItem="dqc-hf-GpP" secondAttribute="trailing" id="yXl-bl-5Ml"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="8bi-Af-fKK"/>
+                    <exclude reference="J6D-pd-nbJ"/>
+                </mask>
+            </variation>
             <connections>
+                <outlet property="photoScrim" destination="dqc-hf-GpP" id="BML-I6-uwb"/>
+                <outlet property="photoView" destination="NPh-hq-1aV" id="s7B-d0-E5G"/>
+                <outlet property="subtitleLabel" destination="Bla-OV-fNx" id="RzD-15-thE"/>
                 <outlet property="titleLabel" destination="1fH-tt-37Y" id="5Pu-ag-NLy"/>
             </connections>
         </collectionViewCell>

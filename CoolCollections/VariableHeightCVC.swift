@@ -63,7 +63,7 @@ class VariableHeightCVC: UICollectionViewController {
         // TODO: replace this crap with actual cell init
         let x = self.collectionView(collectionView, numberOfItemsInSection: indexPath.section) - indexPath.row
         let backgroundTint = CGFloat(x) * 0.1
-        cell.backgroundColor = UIColor(white: backgroundTint, alpha: 1.0)
+        cell.backgroundColor = UIColor.redColor() // UIColor(white: backgroundTint, alpha: 1.0)
         
         cell.configureWithRocker(self.rockers![indexPath.row])
         

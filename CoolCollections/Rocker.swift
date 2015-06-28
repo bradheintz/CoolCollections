@@ -10,25 +10,25 @@ import UIKit
 
 class Rocker {
     let name, band : String
-    // let photo : UIImage?
+    let photo : UIImage
     
-    init(name : String, band : String/*, photo : UIImage*/) {
+    init(name : String, band : String, photo : UIImage) {
         self.name = name
         self.band = band
-        // self.photo = photo
+        self.photo = photo
     }
     
     class func getCollection() -> [Rocker] {
         var collection : [Rocker] = []
         
-        collection.append(Rocker(name: "Janis Joplin", band: "Big Brother and the Holding Company"/*, photo: nil*/))
-        collection.append(Rocker(name: "Ann Wilson", band: "Heart"))
-        collection.append(Rocker(name: "Nancy Wilson", band: "Heart"))
-        collection.append(Rocker(name: "Joan Jett", band: "The Blackhearts"))
-        collection.append(Rocker(name: "Chrissy Hynde", band: "The Pretenders"))
-        collection.append(Rocker(name: "Grace Slick", band: "Jefferson Airplane"))
-        collection.append(Rocker(name: "Christine McVie", band: "Fleetwood Mac"))
-        collection.append(Rocker(name: "Stevie Nicks", band: "Fleetwood Mac"))
+        collection.append(Rocker(name: "Janis Joplin", band: "Big Brother and the Holding Company", photo: UIImage(named: "janis")!))
+        collection.append(Rocker(name: "Ann Wilson", band: "Heart", photo: UIImage(named: "ann")!))
+        collection.append(Rocker(name: "Nancy Wilson", band: "Heart", photo: UIImage(named: "nancy")!))
+        collection.append(Rocker(name: "Joan Jett", band: "The Blackhearts", photo: UIImage(named: "joan")!))
+        collection.append(Rocker(name: "Chrissie Hynde", band: "The Pretenders", photo: UIImage(named: "chrissie")!))
+        collection.append(Rocker(name: "Grace Slick", band: "Jefferson Airplane", photo: UIImage(named: "grace")!))
+        collection.append(Rocker(name: "Christine McVie", band: "Fleetwood Mac", photo: UIImage(named: "christine")!))
+        collection.append(Rocker(name: "Stevie Nicks", band: "Fleetwood Mac", photo: UIImage(named: "stevie")!))
         
         return collection;
     }
