@@ -78,6 +78,15 @@ class VariableHeightLayout: UICollectionViewFlowLayout {
         // self.dumpAttrs(attributes)
         return attributes
     }
+    
+    override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint,
+        withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        var proposedViewportOffset = proposedContentOffset.y + navHeight
+        let nearestCellIndex = Int(round(proposedViewportOffset / hMax))
+        let targetViewportOffset = CGFloat(nearestCellIndex) * hMax
+
+        return CGPointMake(proposedContentOffset.x, targetViewportOffset - navHeight)
+    }
 
     
     // MARK: layout helpers

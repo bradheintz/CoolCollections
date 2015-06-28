@@ -102,7 +102,7 @@
         <scene sceneID="GTQ-4F-9c3">
             <objects>
                 <collectionViewController title="Rockers" id="cbX-DH-aNL" customClass="VariableHeightCVC" customModule="CoolCollections" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GkG-mp-xNR">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="GkG-mp-xNR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OwJ-VS-fjc" customClass="VariableHeightLayout" customModule="CoolCollections" customModuleProvider="target">
