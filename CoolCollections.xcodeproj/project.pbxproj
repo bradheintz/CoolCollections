@@ -19,6 +19,7 @@
 		804719091B40415600033E3E /* VariableHeightLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804719081B40415600033E3E /* VariableHeightLayout.swift */; };
 		8047190C1B4056B600033E3E /* VariableHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047190A1B4056B600033E3E /* VariableHeightCell.swift */; };
 		8047190D1B4056B600033E3E /* VariableHeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8047190B1B4056B600033E3E /* VariableHeightCell.xib */; };
+		804719121B406E3900033E3E /* WheelCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804719111B406E3900033E3E /* WheelCVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		804719081B40415600033E3E /* VariableHeightLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableHeightLayout.swift; sourceTree = "<group>"; };
 		8047190A1B4056B600033E3E /* VariableHeightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableHeightCell.swift; sourceTree = "<group>"; };
 		8047190B1B4056B600033E3E /* VariableHeightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariableHeightCell.xib; sourceTree = "<group>"; };
+		804719111B406E3900033E3E /* WheelCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelCVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		804718F91B3F66A000033E3E /* WheelCollection */ = {
 			isa = PBXGroup;
 			children = (
+				804719111B406E3900033E3E /* WheelCVC.swift */,
 			);
 			name = WheelCollection;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			files = (
 				804719091B40415600033E3E /* VariableHeightLayout.swift in Sources */,
 				804719021B4034F700033E3E /* Utility.swift in Sources */,
+				804719121B406E3900033E3E /* WheelCVC.swift in Sources */,
 				804718FE1B40331C00033E3E /* VariableHeightCVC.swift in Sources */,
 				804718D91B3F54D600033E3E /* MasterViewController.swift in Sources */,
 				8047190C1B4056B600033E3E /* VariableHeightCell.swift in Sources */,
