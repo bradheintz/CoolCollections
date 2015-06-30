@@ -20,6 +20,8 @@
 		8047190C1B4056B600033E3E /* VariableHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047190A1B4056B600033E3E /* VariableHeightCell.swift */; };
 		8047190D1B4056B600033E3E /* VariableHeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8047190B1B4056B600033E3E /* VariableHeightCell.xib */; };
 		804719121B406E3900033E3E /* WheelCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804719111B406E3900033E3E /* WheelCVC.swift */; };
+		804719141B4220CC00033E3E /* WheelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804719131B4220CC00033E3E /* WheelCell.swift */; };
+		804719161B42232200033E3E /* WheelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804719151B42232200033E3E /* WheelLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		8047190A1B4056B600033E3E /* VariableHeightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableHeightCell.swift; sourceTree = "<group>"; };
 		8047190B1B4056B600033E3E /* VariableHeightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariableHeightCell.xib; sourceTree = "<group>"; };
 		804719111B406E3900033E3E /* WheelCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelCVC.swift; sourceTree = "<group>"; };
+		804719131B4220CC00033E3E /* WheelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelCell.swift; sourceTree = "<group>"; };
+		804719151B42232200033E3E /* WheelLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				804719111B406E3900033E3E /* WheelCVC.swift */,
+				804719131B4220CC00033E3E /* WheelCell.swift */,
+				804719151B42232200033E3E /* WheelLayout.swift */,
 			);
 			name = WheelCollection;
 			sourceTree = "<group>";
@@ -294,7 +300,9 @@
 				804719091B40415600033E3E /* VariableHeightLayout.swift in Sources */,
 				804719021B4034F700033E3E /* Utility.swift in Sources */,
 				804719121B406E3900033E3E /* WheelCVC.swift in Sources */,
+				804719161B42232200033E3E /* WheelLayout.swift in Sources */,
 				804718FE1B40331C00033E3E /* VariableHeightCVC.swift in Sources */,
+				804719141B4220CC00033E3E /* WheelCell.swift in Sources */,
 				804718D91B3F54D600033E3E /* MasterViewController.swift in Sources */,
 				8047190C1B4056B600033E3E /* VariableHeightCell.swift in Sources */,
 				804719071B403A0100033E3E /* Rocker.swift in Sources */,
@@ -496,6 +504,7 @@
 				804718F41B3F54D600033E3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		804718F51B3F54D600033E3E /* Build configuration list for PBXNativeTarget "CoolCollectionsTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +513,7 @@
 				804718F71B3F54D600033E3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

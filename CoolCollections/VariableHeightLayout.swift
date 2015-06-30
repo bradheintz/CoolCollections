@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class VariableHeightLayout: UICollectionViewFlowLayout {
 
     let hMin : CGFloat = 100
