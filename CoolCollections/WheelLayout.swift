@@ -58,7 +58,7 @@ class WheelLayout: UICollectionViewFlowLayout {
         
         let screenHeight = self.collectionView!.frame.size.height
         for attr in attributes {
-            //attr.frame.origin.y = screenHeight - 400
+            attr.frame.origin.y = screenHeight - 300
             self.rotateAttr(attr)
         }
         
@@ -75,15 +75,18 @@ class WheelLayout: UICollectionViewFlowLayout {
         // the chord from peak to edge is π * r / 2
         
         let cv = self.collectionView!
-        let frameCenter = CGRectGetMidX(cv.frame)
-        let cellCenterInContentSpace = CGRectGetMidX(attr.frame)
-        let cellCenter = cellCenterInContentSpace - cv.contentOffset.x
-        let distanceAlongChord = cellCenter - frameCenter
+        let frameXCenter = CGRectGetMidX(cv.frame)
+        let cellXCenterInContentSpace = CGRectGetMidX(attr.frame)
+        let cellYCenterInContentSpace = CGRectGetMidY(attr.frame)
+        let cellXCenter = cellXCenterInContentSpace - cv.contentOffset.x
+        let cellYCenter = cellYCenterInContentSpace - cv.contentOffset.y
+        let distanceAlongChord = cellXCenter - frameXCenter
         
         let quarterChord = π_2 * self.wheelRadius
         let rotation = distanceAlongChord / quarterChord
         
         // TODO: try a translation here
+        attr.transform = CGAffineTransformTranslate(attr.transform, self.wheelCenter.x - cellXCenter, self.wheelCenter.y - cellYCenter)
         attr.transform = CGAffineTransformRotate(attr.transform, rotation)
         // TODO: try a translation here
         
