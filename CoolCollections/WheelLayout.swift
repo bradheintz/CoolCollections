@@ -9,10 +9,11 @@
 import UIKit
 
 
+let π = CGFloat(M_PI)
+let π_2 = CGFloat(M_PI_2)
+
+
 class WheelLayout: UICollectionViewFlowLayout {
-    
-    let π = CGFloat(M_PI)
-    let π_2 = CGFloat(M_PI_2)
     
     var wheelCenter : CGPoint {
         get {
@@ -53,6 +54,7 @@ class WheelLayout: UICollectionViewFlowLayout {
         self.minimumLineSpacing = 0
         self.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         
+        // TODO: fix this
         self.itemSize = CGSizeMake(self.cellWidth, 600) // height is kludge to make flow layout put all in 1 row
     }
     

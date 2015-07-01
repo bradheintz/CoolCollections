@@ -13,6 +13,7 @@ class WheelCVC: UICollectionViewController {
     let reuseIdentifier = "WheelCell"
     
     var rockers : [Rocker]?
+    var wedgeLayer : CAShapeLayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class WheelCVC: UICollectionViewController {
         self.collectionView!.registerClass(WheelCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         self.rockers = Rocker.getCollection()
+        self.makeWedgeTemplate()
     }
 
     
@@ -43,10 +45,13 @@ class WheelCVC: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! WheelCell
 
-        cell.backgroundColor = UIColor(white: 0.1 * CGFloat(indexPath.row + 1), alpha: 1.0)
+        // cell.backgroundColor = UIColor(white: 0.1 * CGFloat(indexPath.row + 1), alpha: 1.0)
         cell.layer.anchorPoint = CGPointMake(0.5, 1.0)
+        
+        let gbPortion = CGFloat(indexPath.row + 1) / CGFloat(rockers!.count + 2)
+        self.addWedgeToCell(cell, color: UIColor(red: 1.0, green: gbPortion, blue: gbPortion, alpha: 1.0))
     
         return cell
     }
@@ -82,4 +87,60 @@ class WheelCVC: UICollectionViewController {
     }
     */
 
+    
+    // MARK: duplicated with layout file
+    // TODO: fix
+    var wheelRadius : CGFloat {
+        get {
+            if let cv = self.collectionView {
+                return cv.frame.size.width / 2.0
+            }
+            
+            return UIScreen.mainScreen().bounds.width / 2.0; // probably right anyway
+        }
+    }
+
+    
+    // MARK: helpers
+    
+    func makeWedgeTemplate() {
+        let r = self.wheelRadius
+        let θ = π / 6.0 // angle of a one-twelfth wedge
+        let θ_2 = θ / 2.0
+        let startAngle = π_2 - θ_2 + π
+        let endAngle = π_2 + θ_2 + π
+        let arcCenter = CGPointZero
+
+        var arc = UIBezierPath(arcCenter: arcCenter, radius: r, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        arc.lineWidth = 0;
+        arc.addLineToPoint(arcCenter)
+        arc.closePath()
+        
+        var wedge = CAShapeLayer()
+        wedge.path = arc.CGPath
+        wedge.lineWidth = 0
+
+        // self.wedgeHeight = arc.bounds.size.height;
+        
+        self.wedgeLayer = wedge;
+    }
+    
+    func addWedgeToCell(cell : WheelCell, color : UIColor) {
+        if let cellWedge = cell.wedgeLayer {
+            // TODO: color
+            return; // our work here is done
+        }
+        
+        if let templateWedge = self.wedgeLayer {
+            let copyWedge = CAShapeLayer()
+            copyWedge.path = templateWedge.path
+            // TODO: color
+            copyWedge.fillColor = color.CGColor
+            copyWedge.lineWidth = 0
+            
+            cell.wedgeLayer = copyWedge
+            cell.layer.addSublayer(copyWedge)
+            cell.wedgeLayer!.position = CGPointMake(cell.bounds.size.width / 2, cell.bounds.size.height);
+        }
+    }
 }

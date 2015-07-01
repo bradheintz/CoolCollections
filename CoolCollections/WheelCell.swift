@@ -10,4 +10,5 @@ import UIKit
 
 class WheelCell: UICollectionViewCell {
     
+    var wedgeLayer : CAShapeLayer?
 }
