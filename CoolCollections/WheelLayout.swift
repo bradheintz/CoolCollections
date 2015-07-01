@@ -30,23 +30,35 @@ class WheelLayout: UICollectionViewFlowLayout {
                 return cv.frame.size.width / 2.0
             }
             
-            return 160.0; // probably right anyway
+            return UIScreen.mainScreen().bounds.width / 2.0; // probably right anyway
         }
     }
     
+    var cellWidth : CGFloat {
+        get {
+            return 2.0 * self.wheelRadius * sin(π / 12.0)
+        }
+    }
+    
+    var cellHeight : CGFloat {
+        let r = self.wheelRadius
+        let w = self.cellWidth
+        return sqrt(r * r - w * w / 4.0)
+    }
     
     // MARK: overrides
     
     override func prepareLayout() {
         self.minimumInteritemSpacing = 0
         self.minimumLineSpacing = 0
-        self.itemSize = CGSizeMake(150, 600)
         self.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        
+        self.itemSize = CGSizeMake(self.cellWidth, 600) // height is kludge to make flow layout put all in 1 row
     }
     
     override func collectionViewContentSize() -> CGSize {
         let itemCount = self.collectionView!.numberOfItemsInSection(0)
-        return CGSizeMake(CGFloat(150 * itemCount), self.collectionView!.frame.size.height)
+        return CGSizeMake(self.cellWidth * CGFloat(itemCount), self.collectionView!.frame.size.height)
     }
     
     override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
@@ -57,9 +69,12 @@ class WheelLayout: UICollectionViewFlowLayout {
         var attributes = super.layoutAttributesForElementsInRect(rect) as! [UICollectionViewLayoutAttributes]
         
         let screenHeight = self.collectionView!.frame.size.height
+        let w = self.cellWidth
+        let h = self.cellHeight
         for attr in attributes {
-            attr.frame.origin.y = screenHeight - 300
-            self.rotateAttr(attr)
+            attr.frame.size.width = w
+            attr.frame.size.height = h
+            self.translateAndRotateAttr(attr)
         }
         
         
@@ -69,11 +84,7 @@ class WheelLayout: UICollectionViewFlowLayout {
     
     // MARK: helpers
     
-    func rotateAttr(attr: UICollectionViewLayoutAttributes) {
-        // if cell center is at view center, that's our 0 - so use cosine
-        // radius of the circle is half the width
-        // the chord from peak to edge is π * r / 2
-        
+    func translateAndRotateAttr(attr: UICollectionViewLayoutAttributes) {
         let cv = self.collectionView!
         let frameXCenter = CGRectGetMidX(cv.frame)
         let cellXCenterInContentSpace = CGRectGetMidX(attr.frame)
@@ -81,15 +92,11 @@ class WheelLayout: UICollectionViewFlowLayout {
         let cellXCenter = cellXCenterInContentSpace - cv.contentOffset.x
         let cellYCenter = cellYCenterInContentSpace - cv.contentOffset.y
         let distanceAlongChord = cellXCenter - frameXCenter
+        println("cell \(attr.indexPath.row): contentX \(cellXCenterInContentSpace)  frameX \(cellXCenter)  contentOffset = \(cv.contentOffset.x)")
         
-        let quarterChord = π_2 * self.wheelRadius
-        let rotation = distanceAlongChord / quarterChord
+        let rotation = distanceAlongChord / self.wheelRadius
         
-        // TODO: try a translation here
         attr.transform = CGAffineTransformTranslate(attr.transform, self.wheelCenter.x - cellXCenter, self.wheelCenter.y - cellYCenter)
         attr.transform = CGAffineTransformRotate(attr.transform, rotation)
-        // TODO: try a translation here
-        
-        println("distanceAlongChord for \(attr.indexPath.row): \(distanceAlongChord)")
     }
 }

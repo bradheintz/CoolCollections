@@ -46,7 +46,7 @@ class WheelCVC: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
 
         cell.backgroundColor = UIColor(white: 0.1 * CGFloat(indexPath.row + 1), alpha: 1.0)
-        cell.layer.anchorPoint = CGPointMake(0.5, 0.5)
+        cell.layer.anchorPoint = CGPointMake(0.5, 1.0)
     
         return cell
     }
