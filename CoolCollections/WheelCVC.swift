@@ -93,10 +93,10 @@ class WheelCVC: UICollectionViewController {
     var wheelRadius : CGFloat {
         get {
             if let cv = self.collectionView {
-                return cv.frame.size.width / 2.0
+                return wheelDiameterToScreenWidthRatio * (cv.frame.size.width / 2.0)
             }
             
-            return UIScreen.mainScreen().bounds.width / 2.0; // probably right anyway
+            return wheelDiameterToScreenWidthRatio *  (UIScreen.mainScreen().bounds.width / 2.0); // probably right anyway
         }
     }
 
@@ -105,7 +105,7 @@ class WheelCVC: UICollectionViewController {
     
     func makeWedgeTemplate() {
         let r = self.wheelRadius
-        let θ = π / 6.0 // angle of a one-twelfth wedge
+        let θ = 2.0 * π / CGFloat(numberOfWedges) // angle of a one-twelfth wedge
         let θ_2 = θ / 2.0
         let startAngle = π_2 - θ_2 + π
         let endAngle = π_2 + θ_2 + π

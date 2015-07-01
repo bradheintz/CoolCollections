@@ -18,7 +18,7 @@ class WheelLayout: UICollectionViewFlowLayout {
     var wheelCenter : CGPoint {
         get {
             if let cv = self.collectionView {
-                return CGPointMake(cv.frame.size.width / 2.0, cv.frame.size.height + 0)
+                return CGPointMake(cv.frame.size.width / 2.0, cv.frame.size.height + 50)
             }
             
             return CGPointZero
@@ -28,16 +28,16 @@ class WheelLayout: UICollectionViewFlowLayout {
     var wheelRadius : CGFloat {
         get {
             if let cv = self.collectionView {
-                return cv.frame.size.width / 2.0
+                return wheelDiameterToScreenWidthRatio * (cv.frame.size.width / 2.0)
             }
             
-            return UIScreen.mainScreen().bounds.width / 2.0; // probably right anyway
+            return wheelDiameterToScreenWidthRatio *  (UIScreen.mainScreen().bounds.width / 2.0); // probably right anyway
         }
     }
     
     var cellWidth : CGFloat {
         get {
-            return 2.0 * self.wheelRadius * sin(π / 12.0)
+            return 2.0 * self.wheelRadius * sin(π / CGFloat(numberOfWedges))
         }
     }
     

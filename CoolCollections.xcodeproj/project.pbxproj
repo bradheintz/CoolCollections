@@ -23,6 +23,7 @@
 		804719141B4220CC00033E3E /* WheelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804719131B4220CC00033E3E /* WheelCell.swift */; };
 		804719161B42232200033E3E /* WheelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804719151B42232200033E3E /* WheelLayout.swift */; };
 		804BC9501B446E5A00B1C946 /* WheelContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804BC94F1B446E5A00B1C946 /* WheelContainerVC.swift */; };
+		804BC9541B448CE500B1C946 /* WheelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804BC9531B448CE500B1C946 /* WheelConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		804719131B4220CC00033E3E /* WheelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelCell.swift; sourceTree = "<group>"; };
 		804719151B42232200033E3E /* WheelLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelLayout.swift; sourceTree = "<group>"; };
 		804BC94F1B446E5A00B1C946 /* WheelContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelContainerVC.swift; sourceTree = "<group>"; };
+		804BC9531B448CE500B1C946 /* WheelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				804719131B4220CC00033E3E /* WheelCell.swift */,
 				804719151B42232200033E3E /* WheelLayout.swift */,
 				804BC94F1B446E5A00B1C946 /* WheelContainerVC.swift */,
+				804BC9531B448CE500B1C946 /* WheelConfig.swift */,
 			);
 			name = WheelCollection;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				804718FE1B40331C00033E3E /* VariableHeightCVC.swift in Sources */,
 				804719141B4220CC00033E3E /* WheelCell.swift in Sources */,
 				804718D91B3F54D600033E3E /* MasterViewController.swift in Sources */,
+				804BC9541B448CE500B1C946 /* WheelConfig.swift in Sources */,
 				8047190C1B4056B600033E3E /* VariableHeightCell.swift in Sources */,
 				804BC9501B446E5A00B1C946 /* WheelContainerVC.swift in Sources */,
 				804719071B403A0100033E3E /* Rocker.swift in Sources */,
