@@ -156,7 +156,6 @@
 				804719111B406E3900033E3E /* WheelCVC.swift */,
 				804719131B4220CC00033E3E /* WheelCell.swift */,
 				804719151B42232200033E3E /* WheelLayout.swift */,
-				804BC94F1B446E5A00B1C946 /* WheelContainerVC.swift */,
 				804BC9531B448CE500B1C946 /* WheelConfig.swift */,
 			);
 			name = WheelCollection;
@@ -205,6 +204,7 @@
 		80F445D21B489065002AABDD /* Contained */ = {
 			isa = PBXGroup;
 			children = (
+				804BC94F1B446E5A00B1C946 /* WheelContainerVC.swift */,
 			);
 			name = Contained;
 			sourceTree = "<group>";
