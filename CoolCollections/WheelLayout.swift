@@ -42,10 +42,20 @@ class WheelLayout: UICollectionViewFlowLayout {
     }
     
     var cellHeight : CGFloat {
-        let r = self.wheelRadius
-        let w = self.cellWidth
-        return sqrt(r * r - w * w / 4.0)
+        get {
+            let r = self.wheelRadius
+            let w = self.cellWidth
+            return sqrt(r * r - w * w / 4.0)
+        }
     }
+    
+    var initialOffset : CGFloat {
+        get {
+            return self.cellWidth
+        }
+    }
+    
+    let extraWedgesOnEachEnd = 0
     
     // MARK: overrides
     
@@ -55,7 +65,7 @@ class WheelLayout: UICollectionViewFlowLayout {
         self.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         
         // TODO: fix this
-        self.itemSize = CGSizeMake(self.cellWidth, 600) // height is kludge to make flow layout put all in 1 row
+        self.itemSize = CGSizeMake(self.cellWidth, 500) // height is kludge to make flow layout put all in 1 row
     }
     
     override func collectionViewContentSize() -> CGSize {
@@ -69,6 +79,24 @@ class WheelLayout: UICollectionViewFlowLayout {
 
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
         var attributes = super.layoutAttributesForElementsInRect(rect) as! [UICollectionViewLayoutAttributes]
+        if attributes.count == 0 { // should never happen, BUT will crash code below if it does
+            return []
+        }
+
+        // assumes one section
+        let firstRow = attributes.first!.indexPath.row
+        if firstRow > 0 {
+            var attr = super.layoutAttributesForItemAtIndexPath(NSIndexPath(forRow: firstRow - 1, inSection: 0))
+            attributes = [attr] + attributes
+        }
+        
+        let lastRow = attributes.last!.indexPath.row
+        let maxIndex = self.collectionView!.dataSource!.collectionView(self.collectionView!, numberOfItemsInSection: 0) - 1
+        if lastRow < maxIndex {
+            var attr = super.layoutAttributesForItemAtIndexPath(NSIndexPath(forRow: lastRow + 1, inSection: 0))
+            attributes = attributes + [attr]
+        }
+        
         
         let screenHeight = self.collectionView!.frame.size.height
         let w = self.cellWidth
@@ -94,7 +122,6 @@ class WheelLayout: UICollectionViewFlowLayout {
         let cellXCenter = cellXCenterInContentSpace - cv.contentOffset.x
         let cellYCenter = cellYCenterInContentSpace - cv.contentOffset.y
         let distanceAlongChord = cellXCenter - frameXCenter
-        println("cell \(attr.indexPath.row): contentX \(cellXCenterInContentSpace)  frameX \(cellXCenter)  contentOffset = \(cv.contentOffset.x)")
         
         let rotation = distanceAlongChord / self.wheelRadius
         

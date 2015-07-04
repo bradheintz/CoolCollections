@@ -14,6 +14,17 @@ class WheelCVC: UICollectionViewController {
     
     var rockers : [Rocker]?
     var wedgeLayer : CAShapeLayer?
+    
+    var firstTimeLayingOut : Bool = true
+    
+    var lastContentOffset : CGFloat = 0
+    
+
+    var wheelLayout : WheelLayout {
+        get {
+            return self.collectionView!.collectionViewLayout as! WheelLayout
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +38,14 @@ class WheelCVC: UICollectionViewController {
         self.rockers = Rocker.getCollection()
         self.makeWedgeTemplate()
     }
+    
+    override func viewWillLayoutSubviews() {
+        if self.firstTimeLayingOut {
+            self.collectionView!.setContentOffset(CGPointMake(self.wheelLayout.initialOffset, 0), animated: false)
+            self.lastContentOffset = self.collectionView!.contentOffset.x
+            self.firstTimeLayingOut = false
+        }
+    }
 
     
     // MARK: UICollectionViewDataSource
@@ -38,7 +57,7 @@ class WheelCVC: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let rockers = self.rockers {
-            return rockers.count
+            return rockers.count * 2 + 2 * self.wheelLayout.extraWedgesOnEachEnd
         }
         
         return 0
@@ -47,13 +66,19 @@ class WheelCVC: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! WheelCell
 
-        // cell.backgroundColor = UIColor(white: 0.1 * CGFloat(indexPath.row + 1), alpha: 1.0)
-        cell.layer.anchorPoint = CGPointMake(0.5, 1.0)
+        cell.layer.anchorPoint = CGPointMake(0.5, 1.0) // helps with rotation in layout file
         
-        let gbPortion = CGFloat(indexPath.row + 1) / CGFloat(rockers!.count + 2)
+        let rockerIndex = self.rockerIndexForRow(indexPath.row)
+        let gbPortion = CGFloat(rockerIndex + 1) / CGFloat(self.rockers!.count + 2)
         self.addWedgeToCell(cell, color: UIColor(red: 1.0, green: gbPortion, blue: gbPortion, alpha: 1.0))
     
         return cell
+    }
+    
+    func rockerIndexForRow(row : Int) -> Int {
+        var rockerIndex = (row - self.wheelLayout.extraWedgesOnEachEnd) % self.rockers!.count
+        while rockerIndex < 0 { rockerIndex += self.rockers!.count }
+        return rockerIndex
     }
 
     // MARK: UICollectionViewDelegate
@@ -101,7 +126,7 @@ class WheelCVC: UICollectionViewController {
     }
 
     
-    // MARK: helpers
+    // MARK: collection view helpers
     
     func makeWedgeTemplate() {
         let r = self.wheelRadius
@@ -126,21 +151,71 @@ class WheelCVC: UICollectionViewController {
     }
     
     func addWedgeToCell(cell : WheelCell, color : UIColor) {
-        if let cellWedge = cell.wedgeLayer {
-            // TODO: color
-            return; // our work here is done
-        }
-        
-        if let templateWedge = self.wedgeLayer {
+        if cell.wedgeLayer == nil {
+            if self.wedgeLayer == nil {
+                self.makeWedgeTemplate()
+            }
+            
             let copyWedge = CAShapeLayer()
-            copyWedge.path = templateWedge.path
-            // TODO: color
-            copyWedge.fillColor = color.CGColor
+            copyWedge.path = self.wedgeLayer!.path
             copyWedge.lineWidth = 0
             
             cell.wedgeLayer = copyWedge
             cell.layer.addSublayer(copyWedge)
             cell.wedgeLayer!.position = CGPointMake(cell.bounds.size.width / 2, cell.bounds.size.height);
         }
+        
+        cell.wedgeLayer!.fillColor = color.CGColor
+    }
+    
+    
+    // MARK: UIScrollViewDelegate
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        // TODO: send delegate message about currently selected rocker
+        self.performCircularScrollTrick()
+        // println("\(self.collectionView!.contentSize.width) \(self.collectionView!.contentOffset.x) \(self.wheelLayout.cellWidth)")
+        self.lastContentOffset = self.collectionView!.contentOffset.x
+    }
+    
+    
+    // MARK: scroll view helpers
+    func performCircularScrollTrick() {
+        let offset = self.collectionView!.contentOffset.x
+        let fullRockerSetWidth = CGFloat(self.rockers!.count) * self.wheelLayout.cellWidth
+        if self.firstWedgeIsShowing() && self.nowScrollingRight() {
+            self.collectionView!.contentOffset = CGPointMake(offset + fullRockerSetWidth, 0)
+        } else if self.lastWedgeIsShowing() && self.nowScrollingLeft() {
+            self.collectionView!.contentOffset = CGPointMake(offset - fullRockerSetWidth, 0)
+        }
+    }
+    
+    var endCellDetectionWindow : CGFloat {
+        get {
+            return self.wheelLayout.cellWidth * 2.0 // NOTE: kludge
+        }
+    }
+    
+    func firstWedgeIsShowing() -> Bool {
+        let offset = self.collectionView!.contentOffset.x
+        return offset < self.endCellDetectionWindow
+    }
+    
+    func nowScrollingRight() -> Bool {
+        return self.collectionView!.contentOffset.x < self.lastContentOffset
+    }
+    
+    func lastWedgeIsShowing() -> Bool {
+        let offset = self.collectionView!.contentOffset.x
+        let contentWidth = self.collectionView!.contentSize.width
+        let viewWidth = self.collectionView!.frame.size.width
+        return offset > (contentWidth - viewWidth - self.endCellDetectionWindow)
+    }
+    
+    func nowScrollingLeft() -> Bool {
+        if self.firstTimeLayingOut {
+            return false
+        }
+        return self.collectionView!.contentOffset.x > self.lastContentOffset
     }
 }
