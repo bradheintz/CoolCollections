@@ -152,6 +152,7 @@
 		804718F91B3F66A000033E3E /* WheelCollection */ = {
 			isa = PBXGroup;
 			children = (
+				80F445D21B489065002AABDD /* Contained */,
 				804719111B406E3900033E3E /* WheelCVC.swift */,
 				804719131B4220CC00033E3E /* WheelCell.swift */,
 				804719151B42232200033E3E /* WheelLayout.swift */,
@@ -199,6 +200,13 @@
 			children = (
 			);
 			name = Photos;
+			sourceTree = "<group>";
+		};
+		80F445D21B489065002AABDD /* Contained */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Contained;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

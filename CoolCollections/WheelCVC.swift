@@ -71,6 +71,7 @@ class WheelCVC: UICollectionViewController {
         let rockerIndex = self.rockerIndexForRow(indexPath.row)
         let gbPortion = CGFloat(rockerIndex + 1) / CGFloat(self.rockers!.count + 2)
         self.addWedgeToCell(cell, color: UIColor(red: 1.0, green: gbPortion, blue: gbPortion, alpha: 1.0))
+        cell.updateCellText(self.rockers![rockerIndex].name)
     
         return cell
     }
@@ -166,6 +167,7 @@ class WheelCVC: UICollectionViewController {
         }
         
         cell.wedgeLayer!.fillColor = color.CGColor
+        cell.bringSubviewToFront(cell.label)
     }
     
     
