@@ -9,8 +9,15 @@
 import UIKit
 
 
+protocol WheelDelegate {
+    func selectionChanged(idx: Int)
+}
+
+
 class WheelCVC: UICollectionViewController {
     let reuseIdentifier = "WheelCell"
+    
+    var wheelDelegate: WheelDelegate?
     
     var rockers : [Rocker]?
     var wedgeLayer : CAShapeLayer?
@@ -19,6 +26,7 @@ class WheelCVC: UICollectionViewController {
     
     var lastContentOffset : CGFloat = 0
     
+    var lastIndex : Int = 0
 
     var wheelLayout : WheelLayout {
         get {
@@ -174,10 +182,13 @@ class WheelCVC: UICollectionViewController {
     // MARK: UIScrollViewDelegate
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-        // TODO: send delegate message about currently selected rocker
         self.performCircularScrollTrick()
-        // println("\(self.collectionView!.contentSize.width) \(self.collectionView!.contentOffset.x) \(self.wheelLayout.cellWidth)")
         self.lastContentOffset = self.collectionView!.contentOffset.x
+        
+        let centerScreen = self.collectionView!.contentOffset.x + self.collectionView!.frame.size.width / 2.0
+        let idxOfCenteredCell = Int(floor(centerScreen / self.wheelLayout.cellWidth)) % self.rockers!.count
+        self.lastIndex = idxOfCenteredCell
+        self.wheelDelegate?.selectionChanged(idxOfCenteredCell)
     }
     
     

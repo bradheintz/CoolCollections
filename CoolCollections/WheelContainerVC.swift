@@ -8,12 +8,17 @@
 
 import UIKit
 
-class WheelContainerVC: UIViewController {
 
+class WheelContainerVC: UIViewController, WheelDelegate {
+
+    @IBOutlet weak var rockerImage: UIImageView!
+    var rockers : [Rocker]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.rockers = Rocker.getCollection()
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +27,16 @@ class WheelContainerVC: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let destinationWheel = segue.destinationViewController as! WheelCVC
+        destinationWheel.wheelDelegate = self
     }
-    */
 
+    
+    // MARK: WheelDelegate
+    func selectionChanged(idx: Int) {
+        self.rockerImage.image = self.rockers![idx].photo
+    }
 }

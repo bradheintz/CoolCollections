@@ -68,7 +68,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell2" textLabel="kRD-z1-oCu" style="IBUITableViewCellStyleDefault" id="Lxl-j7-NgO">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell2" textLabel="kRD-z1-oCu" style="IBUITableViewCellStyleDefault" id="Lxl-j7-NgO" customClass="Wheels">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lxl-j7-NgO" id="B1b-ES-IHY">
@@ -86,7 +86,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="HuO-sh-bdo" kind="show" id="IML-76-048"/>
+                                    <segue destination="F77-nh-bhy" kind="show" id="sl3-fm-Tdd"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell3" textLabel="vuj-Kn-Blx" style="IBUITableViewCellStyleDefault" id="HEi-m8-Qi2">
@@ -117,7 +117,7 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="tQt-TN-PWz"/>
+                    <navigationItem key="navigationItem" title="Cool Collections" id="tQt-TN-PWz"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
@@ -136,20 +136,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ek3-Bq-kEV">
-                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                                <rect key="frame" x="0.0" y="400" width="600" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="lHr-Df-xk5"/>
+                                    <constraint firstAttribute="height" constant="200" id="lHr-Df-xk5"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="HuO-sh-bdo" kind="embed" id="1XL-9O-9HN"/>
+                                    <segue destination="HuO-sh-bdo" kind="embed" identifier="EmbedWheel" id="1XL-9O-9HN"/>
                                 </connections>
                             </containerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7UB-ck-rQu">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7UB-ck-rQu">
                                 <rect key="frame" x="0.0" y="64" width="600" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="KZr-dv-XHi"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcz-Ml-Xrb" userLabel="Pointer View">
+                                <rect key="frame" x="299" y="382" width="2" height="10"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="4KI-PA-fzV"/>
+                                    <constraint firstAttribute="width" constant="2" id="CZf-ee-iQC"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -158,9 +166,14 @@
                             <constraint firstItem="Ek3-Bq-kEV" firstAttribute="leading" secondItem="NUB-F8-Cy5" secondAttribute="leadingMargin" constant="-16" id="aDa-fV-Mei"/>
                             <constraint firstItem="7UB-ck-rQu" firstAttribute="leading" secondItem="NUB-F8-Cy5" secondAttribute="leadingMargin" constant="-16" id="dn6-2C-2J7"/>
                             <constraint firstItem="TUf-SW-0Bt" firstAttribute="top" secondItem="Ek3-Bq-kEV" secondAttribute="bottom" id="e1R-dq-DRF"/>
+                            <constraint firstAttribute="centerX" secondItem="xcz-Ml-Xrb" secondAttribute="centerX" id="kgs-hw-2gN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ek3-Bq-kEV" secondAttribute="trailing" constant="-16" id="rN6-0t-qYH"/>
+                            <constraint firstItem="Ek3-Bq-kEV" firstAttribute="top" secondItem="xcz-Ml-Xrb" secondAttribute="bottom" constant="8" id="veI-GS-SL3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="rockerImage" destination="7UB-ck-rQu" id="J9K-lI-eCS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a5I-HI-OFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -204,8 +217,8 @@
         <scene sceneID="Do7-gh-vj6">
             <objects>
                 <collectionViewController id="HuO-sh-bdo" customClass="WheelCVC" customModule="CoolCollections" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="RMp-UU-3bB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="RMp-UU-3bB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9n1-La-t3I" customClass="WheelLayout" customModule="CoolCollections" customModuleProvider="target">
                             <size key="itemSize" width="50" height="50"/>
@@ -232,28 +245,41 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMn-Jt-N3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1480" y="488"/>
+            <point key="canvasLocation" x="1475" y="944"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="O9e-Lu-MGR">
+        <!--WheelCVC-->
+        <scene sceneID="Xh8-vY-STi">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="wDd-qv-50q" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="f9O-B2-XBY"/>
-                        <viewControllerLayoutGuide type="bottom" id="tjF-J7-41Y"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="RAz-ZK-tYY">
+                <collectionViewController id="F77-nh-bhy" customClass="WheelCVC" customModule="CoolCollections" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="Eah-aa-jhg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cfY-oi-nfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rIB-34-4Pq" customClass="WheelLayout" customModule="CoolCollections" customModuleProvider="target">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jFj-8d-CZr" customClass="WheelCell" customModule="CoolCollections" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="F77-nh-bhy" id="6ue-hQ-4c6"/>
+                            <outlet property="delegate" destination="F77-nh-bhy" id="XDp-8d-pFN"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tBP-mE-p1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1565" y="461"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="1XL-9O-9HN"/>
-    </inferredMetricsTieBreakers>
 </document>
