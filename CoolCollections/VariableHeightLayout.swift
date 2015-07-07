@@ -45,18 +45,18 @@ class VariableHeightLayout: UICollectionViewFlowLayout {
         var attributes = super.layoutAttributesForElementsInRect(layoutRect) as! [UICollectionViewLayoutAttributes]
         
         // NOTE: top of visible portion of collection
-        var viewportTop = self.collectionView!.contentOffset.y + navHeight
+        let viewportTop = self.collectionView!.contentOffset.y + navHeight
         
         for attr in attributes {
             var cellHeight : CGFloat
             var cellTop : CGFloat
             
-            var maxPossibleCellTop = CGFloat(attr.indexPath.row) * hMax
+            let maxPossibleCellTop = CGFloat(attr.indexPath.row) * hMax
             
-            if (maxPossibleCellTop <= viewportTop) { // maximized
+            if maxPossibleCellTop <= viewportTop { // maximized
                 cellTop = maxPossibleCellTop
                 cellHeight = hMax
-            } else if (maxPossibleCellTop < (viewportTop + hMax)) { // expanding
+            } else if maxPossibleCellTop < (viewportTop + hMax) { // expanding
                 cellTop = maxPossibleCellTop
                 cellHeight = self.scaledHeightForOffset(cellTop - viewportTop)
             } else { // minimized

@@ -24,6 +24,7 @@
 		804719161B42232200033E3E /* WheelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804719151B42232200033E3E /* WheelLayout.swift */; };
 		804BC9501B446E5A00B1C946 /* WheelContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804BC94F1B446E5A00B1C946 /* WheelContainerVC.swift */; };
 		804BC9541B448CE500B1C946 /* WheelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804BC9531B448CE500B1C946 /* WheelConfig.swift */; };
+		80F445D41B4B88C1002AABDD /* BottomPinnedVHLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F445D31B4B88C1002AABDD /* BottomPinnedVHLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		804719151B42232200033E3E /* WheelLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelLayout.swift; sourceTree = "<group>"; };
 		804BC94F1B446E5A00B1C946 /* WheelContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelContainerVC.swift; sourceTree = "<group>"; };
 		804BC9531B448CE500B1C946 /* WheelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelConfig.swift; sourceTree = "<group>"; };
+		80F445D31B4B88C1002AABDD /* BottomPinnedVHLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPinnedVHLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 		804718FA1B3F66AC00033E3E /* BottomPinned */ = {
 			isa = PBXGroup;
 			children = (
+				80F445D31B4B88C1002AABDD /* BottomPinnedVHLayout.swift */,
 			);
 			name = BottomPinned;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				804719091B40415600033E3E /* VariableHeightLayout.swift in Sources */,
+				80F445D41B4B88C1002AABDD /* BottomPinnedVHLayout.swift in Sources */,
 				804719021B4034F700033E3E /* Utility.swift in Sources */,
 				804719121B406E3900033E3E /* WheelCVC.swift in Sources */,
 				804719161B42232200033E3E /* WheelLayout.swift in Sources */,
