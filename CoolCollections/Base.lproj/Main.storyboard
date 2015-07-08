@@ -72,7 +72,7 @@
                                     <segue destination="jxV-Xw-Bgo" kind="show" id="Uyy-AZ-xdF"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell2" textLabel="kRD-z1-oCu" style="IBUITableViewCellStyleDefault" id="Lxl-j7-NgO" customClass="Wheels">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell2" textLabel="kRD-z1-oCu" style="IBUITableViewCellStyleDefault" id="Lxl-j7-NgO">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lxl-j7-NgO" id="B1b-ES-IHY">
@@ -148,10 +148,10 @@
             </objects>
             <point key="canvasLocation" x="605" y="64"/>
         </scene>
-        <!--Cover Flow-->
+        <!--Cover Flow(ish)-->
         <scene sceneID="l4x-Tw-oyd">
             <objects>
-                <viewController title="Cover Flow" id="amK-Ko-kRW" customClass="CoverFlowVC" customModule="CoolCollections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Cover Flow(ish)" id="amK-Ko-kRW" customClass="CoverFlowVC" customModule="CoolCollections" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="duT-79-p3Q"/>
                         <viewControllerLayoutGuide type="bottom" id="8kJ-CS-SnO"/>

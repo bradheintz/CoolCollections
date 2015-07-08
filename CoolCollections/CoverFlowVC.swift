@@ -24,6 +24,9 @@ class CoverFlowVC: UIViewController, UICollectionViewDataSource, UICollectionVie
 
         self.rockers = Rocker.getCollection()
 
+        var basicLayout = UICollectionViewFlowLayout()
+        basicLayout.scrollDirection = .Horizontal
+        self.collectionView.collectionViewLayout = basicLayout
         self.otherLayout = CoverFlowLayout()
 
         self.addLayoutToggle()
@@ -35,13 +38,21 @@ class CoverFlowVC: UIViewController, UICollectionViewDataSource, UICollectionVie
     }
 
     func toggleLayout() {
-        let dummyLayout = otherLayout!
+        let dummyLayout = self.otherLayout!
         self.otherLayout = self.collectionView.collectionViewLayout
         self.collectionView.collectionViewLayout = dummyLayout
+        UIView.animateWithDuration(0.5, animations: {
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        })
     }
-
+    
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        self.collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
 
     // MARK: - UICollectionViewDataSource
+
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let rockers = self.rockers {
             return rockers.count
@@ -60,12 +71,24 @@ class CoverFlowVC: UIViewController, UICollectionViewDataSource, UICollectionVie
     
     
     // MARK: - UICollectionViewDelegateFlowLayout
+    
+    let cellWidth : CGFloat = 200
+    let cellHeight : CGFloat = 150
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(cellWidth, cellHeight)
+    }
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let sideInset : CGFloat = (self.collectionView!.frame.width - flowLayout.itemSize.width) / 2.0
+            let sideInset : CGFloat = (self.collectionView!.frame.width - cellWidth) / 2.0
             return UIEdgeInsetsMake(0, sideInset, 0, sideInset)
         }
         
         return UIEdgeInsetsZero
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 30
     }
 }

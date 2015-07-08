@@ -12,9 +12,6 @@ import UIKit
 class CoverFlowLayout: UICollectionViewFlowLayout {
 
     override func prepareLayout() {
-        self.minimumInteritemSpacing = 30
-        self.minimumLineSpacing = 10
-        self.itemSize = CGSizeMake(200, 150)
         self.scrollDirection = .Horizontal
     }
 
@@ -30,8 +27,8 @@ class CoverFlowLayout: UICollectionViewFlowLayout {
             let distance = self.collectionView!.frame.midX - (attr.center.x - self.collectionView!.contentOffset.x)
             let scaledDistance = distance / self.rotationZone
             let boundedScaledDistance = min(max(scaledDistance, -1.0), 1.0)
-            attr.transform3D.m34 = -1.0 / (3.0 * self.itemSize.width) // perspective magic
-            attr.transform3D = CATransform3DRotate(attr.transform3D, 0.4 * π * boundedScaledDistance, 0, 1.0, 0)
+            attr.transform3D.m34 = -1.0 / (4.0 * self.itemSize.width) // perspective magic
+            attr.transform3D = CATransform3DRotate(attr.transform3D, 0.3 * π * boundedScaledDistance, 0, 1.0, 0)
             
             attr.alpha = 1.0 - 0.7 * abs(boundedScaledDistance)
         }
@@ -39,10 +36,7 @@ class CoverFlowLayout: UICollectionViewFlowLayout {
         return attributes
     }
 
-    func setupInsets() {
-    }
-    
-    var rotationZone : CGFloat {
+    var rotationZone : CGFloat { // on either side
         get {
             if let cv = self.collectionView {
                 return 0.3 * cv.frame.size.width
