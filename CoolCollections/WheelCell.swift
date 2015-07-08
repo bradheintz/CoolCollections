@@ -15,8 +15,8 @@ class WheelCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         let labelHeight : CGFloat = 20.0
-        let x : CGFloat = 0//frame.size.width / 2.0
-        let y : CGFloat = 0-labelHeight / 2.0
+        let x : CGFloat = 0
+        let y : CGFloat = 0 - labelHeight / 2.0
         let w : CGFloat = frame.size.height * 0.75
         let h : CGFloat = 21.0
         self.label = UILabel(frame: CGRectMake(x, y, w, h))
