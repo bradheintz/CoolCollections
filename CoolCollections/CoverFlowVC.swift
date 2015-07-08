@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CoverFlowVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class CoverFlowVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     let reuseIdentifier = "CFCell"
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -56,5 +56,16 @@ class CoverFlowVC: UIViewController, UICollectionViewDataSource, UICollectionVie
         cell.configureWithRocker(self.rockers![indexPath.row])
 
         return cell
+    }
+    
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            let sideInset : CGFloat = (self.collectionView!.frame.width - flowLayout.itemSize.width) / 2.0
+            return UIEdgeInsetsMake(0, sideInset, 0, sideInset)
+        }
+        
+        return UIEdgeInsetsZero
     }
 }

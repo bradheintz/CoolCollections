@@ -26,19 +26,22 @@ class CoverFlowLayout: UICollectionViewFlowLayout {
         // NOTE: Docs say this is already [UICollectionViewLayoutAttributes]? - but header says otherwise
         var attributes = super.layoutAttributesForElementsInRect(rect) as! [UICollectionViewLayoutAttributes]
 
-        println("\(NSDate()) \(self.collectionView!.contentOffset.x))")
         for attr in attributes {
-            let distance = (rect.midX - self.collectionView!.contentOffset.x) - attr.center.x
+            let distance = self.collectionView!.frame.midX - (attr.center.x - self.collectionView!.contentOffset.x)
             let scaledDistance = distance / self.rotationZone
             let boundedScaledDistance = min(max(scaledDistance, -1.0), 1.0)
-            println("\(attr.indexPath.row) \(distance) \(scaledDistance) \(boundedScaledDistance) \(attr.frame)")
             attr.transform3D.m34 = -1.0 / (3.0 * self.itemSize.width) // perspective magic
             attr.transform3D = CATransform3DRotate(attr.transform3D, 0.4 * π * boundedScaledDistance, 0, 1.0, 0)
+            
+            attr.alpha = 1.0 - 0.7 * abs(boundedScaledDistance)
         }
 
         return attributes
     }
 
+    func setupInsets() {
+    }
+    
     var rotationZone : CGFloat {
         get {
             if let cv = self.collectionView {
