@@ -60,7 +60,6 @@ class BottomPinnedVHLayout: UICollectionViewFlowLayout {
 
             let maxPossibleCellTop = CGFloat(attr.indexPath.row) * hMax
 
-            println("pinned: \(isPinningToBottom)")
             if isPinningToBottom {
                 let indexFromBottom = self.itemCount - attr.indexPath.row - 1
                 
