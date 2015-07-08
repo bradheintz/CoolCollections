@@ -24,6 +24,10 @@
 		804719161B42232200033E3E /* WheelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804719151B42232200033E3E /* WheelLayout.swift */; };
 		804BC9501B446E5A00B1C946 /* WheelContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804BC94F1B446E5A00B1C946 /* WheelContainerVC.swift */; };
 		804BC9541B448CE500B1C946 /* WheelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804BC9531B448CE500B1C946 /* WheelConfig.swift */; };
+		80A59DAF1B4DA8AF00F229BB /* CoverFlowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A59DAE1B4DA8AF00F229BB /* CoverFlowVC.swift */; };
+		80A59DB41B4DAAC500F229BB /* CoverFlowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A59DB21B4DAAC500F229BB /* CoverFlowCell.swift */; };
+		80A59DB51B4DAAC500F229BB /* CoverFlowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A59DB31B4DAAC500F229BB /* CoverFlowCell.xib */; };
+		80A59DB71B4DAFF300F229BB /* CoverFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A59DB61B4DAFF300F229BB /* CoverFlowLayout.swift */; };
 		80F445D41B4B88C1002AABDD /* BottomPinnedVHLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F445D31B4B88C1002AABDD /* BottomPinnedVHLayout.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +63,10 @@
 		804719151B42232200033E3E /* WheelLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelLayout.swift; sourceTree = "<group>"; };
 		804BC94F1B446E5A00B1C946 /* WheelContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelContainerVC.swift; sourceTree = "<group>"; };
 		804BC9531B448CE500B1C946 /* WheelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelConfig.swift; sourceTree = "<group>"; };
+		80A59DAE1B4DA8AF00F229BB /* CoverFlowVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverFlowVC.swift; sourceTree = "<group>"; };
+		80A59DB21B4DAAC500F229BB /* CoverFlowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverFlowCell.swift; sourceTree = "<group>"; };
+		80A59DB31B4DAAC500F229BB /* CoverFlowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverFlowCell.xib; sourceTree = "<group>"; };
+		80A59DB61B4DAFF300F229BB /* CoverFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverFlowLayout.swift; sourceTree = "<group>"; };
 		80F445D31B4B88C1002AABDD /* BottomPinnedVHLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPinnedVHLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +182,7 @@
 		804718FF1B4034C500033E3E /* Collections */ = {
 			isa = PBXGroup;
 			children = (
+				80A59DAD1B4DA88000F229BB /* CoverFlow */,
 				804718F81B3F669100033E3E /* VariableHeightCollection */,
 				804718F91B3F66A000033E3E /* WheelCollection */,
 			);
@@ -202,6 +211,17 @@
 			children = (
 			);
 			name = Photos;
+			sourceTree = "<group>";
+		};
+		80A59DAD1B4DA88000F229BB /* CoverFlow */ = {
+			isa = PBXGroup;
+			children = (
+				80A59DAE1B4DA8AF00F229BB /* CoverFlowVC.swift */,
+				80A59DB21B4DAAC500F229BB /* CoverFlowCell.swift */,
+				80A59DB31B4DAAC500F229BB /* CoverFlowCell.xib */,
+				80A59DB61B4DAFF300F229BB /* CoverFlowLayout.swift */,
+			);
+			name = CoverFlow;
 			sourceTree = "<group>";
 		};
 		80F445D21B489065002AABDD /* Contained */ = {
@@ -293,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80A59DB51B4DAAC500F229BB /* CoverFlowCell.xib in Resources */,
 				804718DE1B3F54D600033E3E /* Main.storyboard in Resources */,
 				804718E31B3F54D600033E3E /* LaunchScreen.xib in Resources */,
 				8047190D1B4056B600033E3E /* VariableHeightCell.xib in Resources */,
@@ -316,11 +337,14 @@
 			files = (
 				804719091B40415600033E3E /* VariableHeightLayout.swift in Sources */,
 				80F445D41B4B88C1002AABDD /* BottomPinnedVHLayout.swift in Sources */,
+				80A59DAF1B4DA8AF00F229BB /* CoverFlowVC.swift in Sources */,
 				804719021B4034F700033E3E /* Utility.swift in Sources */,
 				804719121B406E3900033E3E /* WheelCVC.swift in Sources */,
+				80A59DB71B4DAFF300F229BB /* CoverFlowLayout.swift in Sources */,
 				804719161B42232200033E3E /* WheelLayout.swift in Sources */,
 				804718FE1B40331C00033E3E /* VariableHeightCVC.swift in Sources */,
 				804719141B4220CC00033E3E /* WheelCell.swift in Sources */,
+				80A59DB41B4DAAC500F229BB /* CoverFlowCell.swift in Sources */,
 				804718D91B3F54D600033E3E /* MasterViewController.swift in Sources */,
 				804BC9541B448CE500B1C946 /* WheelConfig.swift in Sources */,
 				8047190C1B4056B600033E3E /* VariableHeightCell.swift in Sources */,
