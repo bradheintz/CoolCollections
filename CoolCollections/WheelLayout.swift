@@ -55,8 +55,7 @@ class WheelLayout: UICollectionViewFlowLayout {
         }
     }
     
-    let extraWedgesOnEachEnd = 0
-    
+
     // MARK: overrides
     
     override func prepareLayout() {
@@ -121,9 +120,9 @@ class WheelLayout: UICollectionViewFlowLayout {
         let cellYCenterInContentSpace = CGRectGetMidY(attr.frame)
         let cellXCenter = cellXCenterInContentSpace - cv.contentOffset.x
         let cellYCenter = cellYCenterInContentSpace - cv.contentOffset.y
-        let distanceAlongChord = cellXCenter - frameXCenter
+        let distanceAlongArc = cellXCenter - frameXCenter
         
-        let rotation = distanceAlongChord / self.wheelRadius
+        let rotation = distanceAlongArc / self.wheelRadius
         
         attr.transform = CGAffineTransformTranslate(attr.transform, self.wheelCenter.x - cellXCenter, self.wheelCenter.y - cellYCenter)
         attr.transform = CGAffineTransformRotate(attr.transform, rotation)

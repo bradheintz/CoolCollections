@@ -65,7 +65,7 @@ class WheelCVC: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let rockers = self.rockers {
-            return rockers.count * 2 + 2 * self.wheelLayout.extraWedgesOnEachEnd
+            return rockers.count * 2
         }
         
         return 0
@@ -76,19 +76,14 @@ class WheelCVC: UICollectionViewController {
 
         cell.layer.anchorPoint = CGPointMake(0.5, 1.0) // helps with rotation in layout file
         
-        let rockerIndex = self.rockerIndexForRow(indexPath.row)
-        let gbPortion = CGFloat(rockerIndex + 1) / CGFloat(self.rockers!.count + 2)
-        self.addWedgeToCell(cell, color: UIColor(red: 1.0, green: gbPortion, blue: gbPortion, alpha: 1.0))
+        let rockerIndex = indexPath.row % self.rockers!.count
+        let rgPortion = CGFloat(rockerIndex + 1) / CGFloat(self.rockers!.count + 2)
+        self.addWedgeToCell(cell, color: UIColor(red: rgPortion, green: rgPortion, blue: 1.0, alpha: 1.0))
         cell.updateCellText(self.rockers![rockerIndex].name)
     
         return cell
     }
     
-    func rockerIndexForRow(row : Int) -> Int {
-        var rockerIndex = (row - self.wheelLayout.extraWedgesOnEachEnd) % self.rockers!.count
-        while rockerIndex < 0 { rockerIndex += self.rockers!.count }
-        return rockerIndex
-    }
 
     // MARK: UICollectionViewDelegate
 

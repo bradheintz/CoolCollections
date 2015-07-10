@@ -37,7 +37,7 @@ class VariableHeightLayout: UICollectionViewFlowLayout {
     }
     
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
-        // TODO: do this better - only figure out visible elements
+        // NOTE: When you have more cells, only figure out visible elements
         let wholeSize = self.collectionViewContentSize()
         let layoutRect = CGRectMake(0, 0, wholeSize.width, wholeSize.height)
         

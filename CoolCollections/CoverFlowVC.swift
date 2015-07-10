@@ -74,7 +74,7 @@ class CoverFlowVC: UIViewController, UICollectionViewDataSource, UICollectionVie
     
     let cellWidth : CGFloat = 200
     let cellHeight : CGFloat = 150
-    
+
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(cellWidth, cellHeight)
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		801397581B4F6DB700280091 /* DefaultCollectionCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801397571B4F6DB700280091 /* DefaultCollectionCVC.swift */; };
 		804718D71B3F54D600033E3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804718D61B3F54D600033E3E /* AppDelegate.swift */; };
 		804718D91B3F54D600033E3E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804718D81B3F54D600033E3E /* MasterViewController.swift */; };
 		804718DE1B3F54D600033E3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 804718DC1B3F54D600033E3E /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		801397571B4F6DB700280091 /* DefaultCollectionCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCollectionCVC.swift; sourceTree = "<group>"; };
 		804718D11B3F54D600033E3E /* CoolCollections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolCollections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		804718D51B3F54D600033E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		804718D61B3F54D600033E3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		801397541B4F6D1000280091 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				801397571B4F6DB700280091 /* DefaultCollectionCVC.swift */,
+			);
+			name = Default;
+			sourceTree = "<group>";
+		};
 		804718C81B3F54D600033E3E = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +192,7 @@
 		804718FF1B4034C500033E3E /* Collections */ = {
 			isa = PBXGroup;
 			children = (
+				801397541B4F6D1000280091 /* Default */,
 				80A59DAD1B4DA88000F229BB /* CoverFlow */,
 				804718F81B3F669100033E3E /* VariableHeightCollection */,
 				804718F91B3F66A000033E3E /* WheelCollection */,
@@ -276,6 +287,7 @@
 		804718C91B3F54D600033E3E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Brad Heintz";
 				TargetAttributes = {
@@ -341,6 +353,7 @@
 				804719021B4034F700033E3E /* Utility.swift in Sources */,
 				804719121B406E3900033E3E /* WheelCVC.swift in Sources */,
 				80A59DB71B4DAFF300F229BB /* CoverFlowLayout.swift in Sources */,
+				801397581B4F6DB700280091 /* DefaultCollectionCVC.swift in Sources */,
 				804719161B42232200033E3E /* WheelLayout.swift in Sources */,
 				804718FE1B40331C00033E3E /* VariableHeightCVC.swift in Sources */,
 				804719141B4220CC00033E3E /* WheelCell.swift in Sources */,

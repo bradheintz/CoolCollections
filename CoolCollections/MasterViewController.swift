@@ -25,7 +25,7 @@ class MasterViewController: UITableViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
         
-        cvcNames = ["VariableHeightCVC", "BottomPinnedVHCVC", "WheelCVC", "WheelContainerVC", "CoverFlow(ish)"]
+        cvcNames = ["VariableHeightCVC", "BottomPinnedVHCVC", "WheelCVC", "WheelContainerVC", "CoverFlow(ish)", "Default"]
     }
 
     override func didReceiveMemoryWarning() {
