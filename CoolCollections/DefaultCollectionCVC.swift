@@ -50,7 +50,7 @@ class DefaultCollectionCVC: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let rockers = self.rockers {
-            return rockers.count
+            return rockers.count * 20
         }
 
         return 0
@@ -60,7 +60,7 @@ class DefaultCollectionCVC: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
     
         // Configure the cell
-        let theImage = self.rockers![indexPath.row].photo
+        let theImage = self.rockers![indexPath.row % self.rockers!.count].photo
         let theImageView = UIImageView(image: theImage)
         theImageView.contentMode = .ScaleAspectFill
         theImageView.clipsToBounds = true
