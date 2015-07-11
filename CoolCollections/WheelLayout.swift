@@ -63,8 +63,7 @@ class WheelLayout: UICollectionViewFlowLayout {
         self.minimumLineSpacing = 0
         self.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         
-        // TODO: fix this
-        self.itemSize = CGSizeMake(self.cellWidth, 500) // height is kludge to make flow layout put all in 1 row
+        self.itemSize = CGSizeMake(self.cellWidth, 500) // NOTE: height is kludge to make flow layout put all in 1 row
     }
     
     override func collectionViewContentSize() -> CGSize {

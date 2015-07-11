@@ -117,8 +117,8 @@ class WheelCVC: UICollectionViewController {
     */
 
     
-    // MARK: duplicated with layout file
-    // TODO: fix
+    // TODO: duplicated with layout file - oops
+
     var wheelRadius : CGFloat {
         get {
             if let cv = self.collectionView {
